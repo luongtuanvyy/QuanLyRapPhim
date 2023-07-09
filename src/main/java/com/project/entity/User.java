@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 @Table(name = "user")
@@ -22,5 +23,8 @@ public class User implements Serializable {
 
     private String email;
 
-    private Boolean isAdmin;
+    private boolean isAdmin;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Collection<Reservation> reservations;
 }
