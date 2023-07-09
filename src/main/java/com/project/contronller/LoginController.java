@@ -14,6 +14,6 @@ public class LoginController {
     @GetMapping("/user")
     public String login() {
         userService.findAll().stream().forEach(user -> System.out.println(user.getEmail()));
-        return "index";
+        return "user/index";
     }
 }
